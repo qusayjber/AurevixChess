@@ -1,18 +1,52 @@
-# ♟ AurevixChess
+# ♟️ AurevixChess
 
-> A modern, engine-powered chess application built from the ground up with C++20 and SFML.
+<p align="center">
+  <strong>A Modern Native Chess Experience Powered by C++</strong>
+</p>
 
-AurevixChess is a standalone desktop chess application designed to combine a polished modern interface with a complete chess rules system and a real chess-playing engine.
+<p align="center">
+  <em>Play. Think. Analyze. Improve.</em>
+</p>
 
-It supports **Human vs Computer**, **Player vs Player**, **Computer vs Computer**, practice and analysis-oriented workflows, with multiple AI difficulty levels and a real position-based hint system.
+<p align="center">
+  <img src="https://img.shields.io/badge/C%2B%2B-20-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++20">
+  <img src="https://img.shields.io/badge/SFML-2.6-8CC445?style=for-the-badge&logo=sfml&logoColor=white" alt="SFML">
+  <img src="https://img.shields.io/badge/CMake-Build-064F8C?style=for-the-badge&logo=cmake&logoColor=white" alt="CMake">
+  <img src="https://img.shields.io/badge/Platform-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License">
+</p>
+
+<p align="center">
+  <a href="#-overview">Overview</a> •
+  <a href="#-features">Features</a> •
+  <a href="#-chess-engine">Engine</a> •
+  <a href="#-game-modes">Modes</a> •
+  <a href="#-architecture">Architecture</a> •
+  <a href="#-build">Build</a> •
+  <a href="#-roadmap">Roadmap</a>
+</p>
+
+---
+
+## ♟️ Overview
+
+**AurevixChess** is a native desktop chess application built from the ground up with **C++20 and SFML**.
+
+It combines a complete chess rules implementation, a native chess search engine, multiple difficulty levels, position-aware hints, analysis tools, chess clocks, game management and a modern desktop interface.
+
+The project is designed around one principle:
+
+> **Chess should feel like a complete software product, not a university demo.**
+
+AurevixChess is completely playable offline and does not depend on a game engine or online chess service.
 
 ---
 
 ## ✨ Features
 
-### ♟ Complete Chess Rules
+### ♟️ Complete Chess Rules
 
-AurevixChess implements the essential rules and game states required for a full chess experience:
+AurevixChess provides a complete rules-oriented chess foundation:
 
 * Legal move generation
 * Check detection
@@ -26,120 +60,137 @@ AurevixChess implements the essential rules and game states required for a full 
 * Insufficient-material detection
 * Draw detection
 * Move history
-* SAN / UCI move representation
+* SAN move notation
+* UCI move representation
 * FEN position support
 
 ---
 
-## 🤖 Chess AI
+## 🤖 Chess Engine
 
-The computer opponent is powered by a native chess search implementation rather than random or scripted moves.
+The computer opponent uses a native search implementation rather than random moves, scripted behavior or an external game engine.
 
-The engine architecture includes:
+### Search
 
-* Minimax search
+* Minimax
 * Alpha-Beta pruning
 * Iterative deepening
 * Move ordering
 * Quiescence search
 * Transposition tables
 * Zobrist hashing
-* Position evaluation
 * Tactical search
-* Material evaluation
+
+### Position Evaluation
+
+The evaluation system considers multiple aspects of a chess position:
+
+* Material balance
 * Piece-square tables
-* Mobility evaluation
+* Mobility
 * Center control
 * King safety
-* Pawn structure analysis
+* Pawn structure
 * Passed pawns
 * Isolated pawns
 * Doubled pawns
-* Bishop-pair evaluation
+* Bishop pair
+* Tactical considerations
 
-The engine is designed to provide progressively stronger play as the selected difficulty increases.
+The architecture is designed so that search and evaluation can evolve independently as the engine becomes stronger.
 
 ---
 
 ## 🎯 Difficulty Levels
 
-AurevixChess provides multiple computer difficulty levels:
+Choose how deeply the computer analyzes the position.
 
-| Level    | Description                           |
-| -------- | ------------------------------------- |
-| Beginner | Lightweight search for casual play    |
-| Easy     | Introductory computer opponent        |
-| Medium   | Balanced everyday difficulty          |
-| Hard     | Deeper tactical search                |
-| Expert   | Stronger positional and tactical play |
-| Master   | Maximum available search strength     |
+|      Level      | Experience                              |
+| :-------------: | --------------------------------------- |
+| 🟢 **Beginner** | Lightweight opponent for casual games   |
+|   🔵 **Easy**   | Relaxed introductory gameplay           |
+|  🟡 **Medium**  | Balanced everyday opponent              |
+|   🟠 **Hard**   | Deeper tactical calculation             |
+|  🔴 **Expert**  | Stronger tactical and positional search |
+|  🟣 **Master**  | Maximum available search strength       |
 
-Difficulty affects the engine's search behavior and thinking depth rather than simply selecting predefined moves.
+Difficulty is controlled through engine search behavior rather than a collection of predetermined moves.
 
 ---
 
-## 💡 Real Hint System
+## 💡 Real-Time Hint System
 
-The Hint feature analyzes the **current board position** using the chess engine.
+AurevixChess includes a **real position-aware Hint system**.
 
-It is not a static tutorial system or a collection of predefined suggestions.
+The application analyzes the current board using the same chess engine used by the computer opponent.
 
-Hints can provide:
+It can provide:
 
 * Recommended move
 * Source square
 * Destination square
 * Engine evaluation
-* Position-based explanation
+* Position-aware explanation
 * Best-move visualization
 
-The application also provides a dedicated **Show Best Move** workflow for analysis.
+### 🔎 Show Best Move
+
+For analysis and learning, the application can explicitly visualize the engine's strongest discovered move.
+
+This makes the hint system useful for understanding positions rather than simply revealing a hard-coded answer.
 
 ---
 
 ## 🎮 Game Modes
 
-### Human vs Computer
+### 👤 vs 🤖 Human vs Computer
 
-Play against the built-in chess engine.
+Play against the built-in chess engine with selectable difficulty.
 
-### Player vs Player
+### 👤 vs 👤 Player vs Player
 
-Two human players can play locally on the same machine.
+Two players can play locally on the same computer.
 
-### Computer vs Computer
+### 🤖 vs 🤖 Computer vs Computer
 
-Watch the chess engine play against itself.
+Watch two engine instances play against each other.
 
-### Practice
+### 🧪 Practice
 
 Experiment with positions and moves without the normal competitive flow.
 
-### Analysis
+### 🔬 Analysis
 
-Inspect positions, moves and engine recommendations.
+Explore positions, moves and engine recommendations.
+
+### 🧩 Puzzle
+
+Solve tactical positions and validate your moves against the expected solution.
 
 ---
 
-## ⏱ Time Controls
+## ⏱️ Chess Clocks
 
-The application supports chess clock functionality with:
+AurevixChess includes native chess clock functionality:
 
 * Configurable base time
 * Increment support
-* Separate clocks for both players
+* Independent player clocks
 * Automatic turn switching
+* Time tracking
 * Clock stopping
 * Time expiration handling
+
+Designed to support everything from casual games to traditional timed chess formats.
 
 ---
 
 ## 🔄 Game Management
 
-AurevixChess includes:
+Manage games directly inside the application:
 
-* Undo
-* Redo
+* ↩️ Undo
+* ↪️ Redo
 * Move navigation
 * Complete move history
 * New game
@@ -152,93 +203,96 @@ AurevixChess includes:
 
 ## 📚 Opening Support
 
-The application includes opening-related functionality designed to identify and display opening information during a game.
+AurevixChess includes opening-related functionality for identifying and displaying opening information during gameplay and analysis.
 
-Opening information can be integrated into the game and analysis workflow without requiring an online service.
+The architecture is designed to support local opening data without requiring an online service.
 
 ---
 
 ## 🧩 Puzzle Mode
 
-Puzzle functionality provides a dedicated environment for tactical chess positions.
+Puzzle mode provides a dedicated tactical environment.
 
-Puzzle workflows can include:
+Supported workflows include:
 
-* Position loading
+* FEN-based puzzle positions
 * Best-move validation
 * Attempt tracking
 * Tactical themes
 * Result evaluation
 
+The system is designed to make future puzzle generation and larger puzzle collections possible.
+
 ---
 
-## 🎨 User Interface
+## 🎨 Modern Desktop UI
 
-The interface is built specifically for AurevixChess rather than relying on a traditional chessboard template.
+AurevixChess is built to feel like a modern desktop application rather than a traditional chessboard demo.
 
-UI goals include:
+### UI principles
 
 * Modern visual hierarchy
+* Clean layouts
 * Smooth animations
-* Responsive layouts
-* Hover feedback
-* Visual move indicators
+* Hover interactions
+* Move indicators
 * Selected-square highlighting
 * Check highlighting
 * Engine thinking state
 * Evaluation visualization
 * Modern menus
-* Game-over presentation
-* Settings screens
-* Dark/light visual support
+* Game-over screens
+* Settings
+* Statistics
+* Analysis screens
 * Keyboard-friendly navigation
+* Light / dark visual support
 
-The application is designed to feel like a modern desktop product rather than a basic educational chess implementation.
+The UI layer is separated from chess logic and engine code to keep the project maintainable.
 
 ---
 
 ## 🔊 Audio
 
-The application includes a dedicated audio layer for chess interaction feedback.
-
-Sound events can be associated with:
+A dedicated audio layer provides interaction feedback for events such as:
 
 * Piece movement
 * Captures
 * Check
 * Game completion
-* UI interaction
+* UI interactions
 
 ---
 
-## 🏗 Architecture
+# 🏗️ Architecture
 
-AurevixChess is organized into independent modules to keep the chess logic, engine, rendering and application layers maintainable.
+AurevixChess follows a modular architecture separating chess logic, engine computation, rendering, persistence and application state.
 
 ```text
 AurevixChess/
 │
-├── assets/
+├── 📁 assets/
 │
-├── src/
-│   ├── chess/
+├── 📁 src/
+│   │
+│   ├── 📁 chess/
 │   │   ├── chess.hpp
 │   │   ├── chess.cpp
 │   │   └── fen.cpp
 │   │
-│   ├── engine/
+│   ├── 📁 engine/
 │   │   ├── eval.hpp
 │   │   ├── eval.cpp
 │   │   ├── search.hpp
 │   │   └── search.cpp
 │   │
-│   ├── io/
+│   ├── 📁 io/
 │   │   ├── opening_book.hpp
 │   │   ├── opening_book.cpp
 │   │   ├── persistence.hpp
 │   │   └── persistence.cpp
 │   │
-│   ├── ui/
+│   ├── 📁 ui/
 │   │   ├── app.hpp
 │   │   ├── app.cpp
 │   │   ├── menu.cpp
@@ -253,56 +307,71 @@ AurevixChess/
 │   │
 │   └── main.cpp
 │
-├── tests/
+├── 📁 tests/
 │
-├── CMakeLists.txt
-├── LICENSE
-├── .gitignore
-└── README.md
+├── 📄 CMakeLists.txt
+├── 📄 LICENSE
+├── 📄 .gitignore
+└── 📄 README.md
 ```
 
----
+### Module Responsibilities
 
-## 🛠 Technology Stack
-
-| Technology | Purpose                              |
-| ---------- | ------------------------------------ |
-| C++20      | Core application language            |
-| SFML 2.6   | Windowing, graphics, audio and input |
-| CMake      | Build configuration                  |
-| Ninja      | Fast build system                    |
-| Clang      | C++ compiler                         |
-| Git        | Version control                      |
+| Module    | Responsibility                           |
+| --------- | ---------------------------------------- |
+| `chess/`  | Board state, pieces, moves and rules     |
+| `engine/` | Search, evaluation and AI                |
+| `ui/`     | Application screens and user interaction |
+| `io/`     | Persistence, PGN and opening data        |
+| `assets/` | Fonts, audio and visual resources        |
+| `tests/`  | Automated validation                     |
 
 ---
 
-## 🚫 No Game Engine
+# 🛠️ Technology Stack
+
+| Technology             | Role                              |
+| ---------------------- | --------------------------------- |
+| **C++20**              | Core application and engine       |
+| **SFML 2.6**           | Window, graphics, input and audio |
+| **CMake**              | Build configuration               |
+| **Ninja**              | Build system                      |
+| **Clang / GCC / MSVC** | C++ compilation                   |
+| **Git**                | Version control                   |
+
+---
+
+# 🚫 No Game Engine
 
 AurevixChess does **not** use:
 
-* Unity
-* Unreal Engine
-* Godot
-* GameMaker
-* Any commercial game engine
+* ❌ Unity
+* ❌ Unreal Engine
+* ❌ Godot
+* ❌ GameMaker
+* ❌ Any commercial game engine
 
-The application is implemented directly with C++ and SFML.
+The application is implemented directly with:
+
+**C++20 + SFML**
+
+SFML is used as a multimedia and rendering library, not as a game engine.
 
 ---
 
-## 💻 Requirements
+# 💻 Requirements
 
-### Windows
+## Windows
 
-Recommended development environment:
+Recommended:
 
-* Windows 10/11
+* Windows 10 / 11
 * C++20-compatible compiler
 * CMake 3.16+
 * Ninja
 * SFML 2.6.x
 
-Supported compilers include modern:
+Compatible compiler families include:
 
 * Clang
 * GCC
@@ -310,28 +379,43 @@ Supported compilers include modern:
 
 ---
 
-## 🔧 Build From Source
+# 🔧 Build
 
-Clone the repository:
+## 1. Clone
 
 ```bash
 git clone https://github.com/qusayjber/AurevixChess.git
 cd AurevixChess
 ```
 
-Configure the project:
+## 2. Configure
 
 ```bash
 cmake -S . -B build -G Ninja
 ```
 
-Build:
+If SFML is installed in a custom location:
+
+```bash
+cmake -S . -B build -G Ninja \
+  -DCMAKE_PREFIX_PATH="PATH_TO_SFML"
+```
+
+## 3. Compile
 
 ```bash
 cmake --build build
 ```
 
-The resulting executable will be generated inside:
+## 4. Run
+
+### Windows
+
+```powershell
+.\build\chess.exe
+```
+
+The executable is generated at:
 
 ```text
 build/chess.exe
@@ -339,49 +423,26 @@ build/chess.exe
 
 ---
 
-## 📦 SFML
+# 📦 SFML Runtime
 
-AurevixChess uses SFML for:
+When using a dynamically linked SFML installation, the required SFML DLL files must be available to the executable.
 
-* Window management
-* 2D rendering
-* Input
-* Audio
+They can either be:
 
-Make sure SFML is installed and discoverable by CMake before configuring the project.
+* placed beside `chess.exe`, or
+* added to the system `PATH`.
 
-For Windows development, you can provide the SFML installation path through CMake:
-
-```bash
-cmake -S . -B build -G Ninja \
-  -DCMAKE_PREFIX_PATH="PATH_TO_SFML"
-```
+For development environments, configure CMake with the location of the SFML installation.
 
 ---
 
-## 🚀 Running
+# 🧪 Testing
 
-After a successful build:
+The architecture intentionally separates the core chess system from the graphical interface.
 
-```bash
-./build/chess
-```
+This makes the following areas suitable for automated testing:
 
-On Windows:
-
-```powershell
-.\build\chess.exe
-```
-
-If SFML is dynamically linked, ensure the required SFML DLLs are available through the executable's directory or system `PATH`.
-
----
-
-## 🧪 Testing
-
-The project keeps chess logic and engine functionality separated from the UI so that core functionality can be tested independently.
-
-Areas suitable for automated testing include:
+### Chess Rules
 
 * Move generation
 * Legal move validation
@@ -391,87 +452,154 @@ Areas suitable for automated testing include:
 * Castling
 * En passant
 * Promotion
-* FEN parsing
-* Position hashing
-* Evaluation
-* Search
 * Draw detection
 
----
+### Position Handling
 
-## 📈 Project Goals
+* FEN parsing
+* FEN generation
+* Position state
+* Move history
+* Hashing
 
-AurevixChess is being developed around several principles:
+### Engine
 
-* Correct chess rules
-* Real engine-based gameplay
-* Responsive interaction
-* Clean architecture
-* Fast native performance
-* Maintainable C++ code
-* Modern desktop UX
-* Offline-first functionality
-* Extensible engine architecture
-
----
-
-## 🔮 Roadmap
-
-Potential future improvements include:
-
-* Stronger evaluation
-* Improved opening-book coverage
-* Advanced engine analysis
-* Multi-PV analysis
-* Engine strength benchmarking
-* PGN database management
-* More chess variants
-* Online multiplayer
-* Network game support
-* Advanced puzzle generation
-* Game statistics
-* Opening explorer
-* Engine-versus-engine tournaments
+* Evaluation
+* Search
+* Move ordering
+* Transposition handling
+* Tactical positions
 
 ---
 
-## 📄 License
+# 📊 Design Goals
 
-AurevixChess is released under the MIT License.
+AurevixChess is developed around several core principles:
+
+```text
+Correctness
+    ↓
+Performance
+    ↓
+Maintainability
+    ↓
+User Experience
+    ↓
+Extensibility
+```
+
+### Core goals
+
+* ♟ Correct chess behavior
+* 🤖 Real engine-powered gameplay
+* ⚡ Native performance
+* 🎨 Modern desktop UX
+* 🧩 Modular architecture
+* 🔒 Offline-first design
+* 🛠 Maintainable C++
+* 📈 Extensible engine
+* 🧪 Testable core logic
+
+---
+
+# 🗺️ Roadmap
+
+Future development may include:
+
+### Engine
+
+* [ ] Stronger evaluation
+* [ ] Improved search heuristics
+* [ ] Multi-PV analysis
+* [ ] Engine benchmarking
+* [ ] Principal variation display
+* [ ] Advanced tactical analysis
+
+### Chess Data
+
+* [ ] Expanded opening book
+* [ ] PGN database
+* [ ] Opening explorer
+* [ ] Larger puzzle database
+* [ ] Automatic puzzle generation
+
+### Gameplay
+
+* [ ] More chess variants
+* [ ] Engine tournaments
+* [ ] Advanced game statistics
+* [ ] Replay improvements
+
+### Connectivity
+
+* [ ] Online multiplayer
+* [ ] Network games
+* [ ] Online game integration
+
+---
+
+# 📦 Releases
+
+Official compiled builds will be distributed through the repository's **GitHub Releases**.
+
+A release package is intended to contain:
+
+```text
+AurevixChess/
+│
+├── chess.exe
+├── SFML DLLs
+├── assets/
+├── LICENSE
+└── README.txt
+```
+
+---
+
+# 🤝 Contributing
+
+Contributions, bug reports and improvements are welcome.
+
+Before submitting a pull request:
+
+1. Keep changes focused.
+2. Preserve the modular architecture.
+3. Avoid unnecessary dependencies.
+4. Verify that the project builds successfully.
+5. Test chess-rule changes carefully.
+6. Keep UI and engine responsibilities separated.
+7. Avoid introducing placeholder functionality.
+
+---
+
+# 📄 License
+
+AurevixChess is released under the **MIT License**.
 
 See [`LICENSE`](LICENSE) for the complete license text.
 
 ---
 
-## 👤 Author
+# 👤 Author
 
-**Qusai Jaber**
+<p align="center">
+  <strong>Qusai Jaber</strong>
+</p>
 
-Software Developer · Computer Science · C++ · Java · Backend · Full-Stack
+<p align="center">
+  Software Developer · C++ · Java · Backend · Full-Stack
+</p>
 
-GitHub:
-
-https://github.com/qusayjber
-
----
-
-## ⭐ Contributing
-
-Contributions, improvements and bug reports are welcome.
-
-Before submitting a pull request:
-
-1. Keep changes focused.
-2. Preserve the existing architecture.
-3. Avoid introducing unnecessary dependencies.
-4. Verify that the project still builds successfully.
-5. Test chess-rule changes carefully.
-6. Keep UI and engine responsibilities separated.
+<p align="center">
+  <a href="https://github.com/qusayjber">
+    <img src="https://img.shields.io/badge/GitHub-qusayjber-181717?style=for-the-badge&logo=github" alt="GitHub">
+  </a>
+</p>
 
 ---
 
-## 🏁 Project Status
-
-AurevixChess is an actively developed native desktop chess application.
-
-The current goal is to evolve it into a polished, fully playable chess platform with a strong local engine and a professional desktop experience.
+<p align="center">
+  <strong>♟️ AurevixChess</strong>
+  <br>
+  <em>Built with C++20. Designed for chess.</em>
+</p>
