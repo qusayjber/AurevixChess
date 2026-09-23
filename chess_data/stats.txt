@@ -1,0 +1,8 @@
+games_played=1
+wins=1
+losses=0
+draws=0
+puzzles_attempted=0
+puzzles_solved=0
+total_move_count=119
+last_difficulty=4

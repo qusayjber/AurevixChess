@@ -1,0 +1,11 @@
+board_theme=Classic
+piece_style=Default
+dark_mode=1
+sound_enabled=1
+sound_volume=0.5
+show_coordinates=1
+show_legal_moves=1
+animation_speed=1
+show_engine_panel=0
+reduced_motion=0
+time_control=10+0
